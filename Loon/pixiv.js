@@ -5,7 +5,7 @@ pixiv 7.9.13
 
 [rewrite_local]
 
-https:\/\/(?:app-api\.pixiv\.net\/v2\/user\/detail|oauth\.secure\.pixiv\.net\/auth\/token) url script-response-body https://raw.githubusercontent.com/GUIQI008/Script/new/main/Loon/pixiv.js
+https:\/\/(?:app-api\.pixiv\.net\/v2\/user\/detail|oauth\.secure\.pixiv\.net\/auth\/token) url script-response-body https://raw.githubusercontent.com/GUIQI008/Script/main/Loon/pixiv.js
 
 [mitm] 
 
