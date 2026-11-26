@@ -1,0 +1,9 @@
+#!name=Pixiv 会员
+#!desc=Pixiv 移除广告：改写接口返回的 is_premium 字段（由 Loon 脚本移植）
+#!category=广告过滤
+
+[Script]
+Pixiv会员 = type=http-response, pattern=^https:\\/\\/(?:app-api\\.pixiv\\.net\\/v2\\/user\\/detail|oauth\\.secure\\.pixiv\\.net\\/auth\\/token), requires-body=1, script-path=https://raw.githubusercontent.com/GUIQI008/Script/main/js/pixiv.js
+
+[MITM]
+hostname = %APPEND% oauth.secure.pixiv.net, app-api.pixiv.net
