@@ -1,0 +1,8 @@
+#!name=Mambo 自动签到
+#!desc=每日自动签到 mambo-hachimi.biliblili.uk: Peak 解 Cloudflare Turnstile + JWT 登录态复用(7天), 结果通知
+#!arguments=username:none,password:none,peak_key:none,peak_task_type:TurnstileTaskProxyLess,peak_proxy:none,extra_cookie:none,checkin_cron:30 8 * * *,notify_mode:all
+#!arguments-desc=把 none 改成你的真实值: username/password 为站点账号密码; peak_key 为 Peak 的 API Key(pk_ 开头); peak_task_type 默认无代理版 TurnstileTaskProxyLess, 若改用带代理版填 turnstiletask 并在 peak_proxy 填 protocol://user:pass@host:port; peak_proxy 和 extra_cookie 不用时保持 none; checkin_cron 为每日签到时间(分 时 日 月 周); notify_mode: all=成功也通知, fail=仅失败通知
+
+[Script]
+Mambo签到 = type=cron, cronexp="{{{checkin_cron}}}", wake-system=true, timeout=180, script-path=https://raw.githubusercontent.com/GUIQI008/Script/main/js/mambo-checkin.js, argument=username={{{username}}}&password={{{password}}}&peak_key={{{peak_key}}}&peak_task_type={{{peak_task_type}}}&peak_proxy={{{peak_proxy}}}&extra_cookie={{{extra_cookie}}}&notify_mode={{{notify_mode}}}
+Mambo手动签到 = type=generic, timeout=180, script-path=https://raw.githubusercontent.com/GUIQI008/Script/main/js/mambo-checkin.js, argument=username={{{username}}}&password={{{password}}}&peak_key={{{peak_key}}}&peak_task_type={{{peak_task_type}}}&peak_proxy={{{peak_proxy}}}&extra_cookie={{{extra_cookie}}}&notify_mode={{{notify_mode}}}
